@@ -1,14 +1,10 @@
 // Import dependencies
 import React, { useRef, useEffect } from "react";
-// import * as tf from "@tensorflow/tfjs";
-// 1. TODO - Import required model here
-// e.g. import * as tfmodel from "@tensorflow-models/tfmodel";
 import * as tf from "@tensorflow/tfjs";
 import "@tensorflow/tfjs-backend-webgl";
 import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./App.css";
-// 2. TODO - Import drawing utility here
 import { drawRect } from "./utilities";
 
 
