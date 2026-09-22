@@ -3,6 +3,8 @@ import React, { useRef, useEffect } from "react";
 // import * as tf from "@tensorflow/tfjs";
 // 1. TODO - Import required model here
 // e.g. import * as tfmodel from "@tensorflow-models/tfmodel";
+import * as tf from "@tensorflow/tfjs";
+import "@tensorflow/tfjs-backend-webgl";
 import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./App.css";
@@ -17,9 +19,12 @@ function App() {
   const runCoco = async () => {
     // 3. TODO - Load network
     // e.g. const net = await cocossd.load();
+    // await tf.setBackend("webgl");
+    await tf.ready();
     const net = await cocossd.load();
+    console.log("COCO-SSD model loaded.");
 
-    //  Loop and detect hands
+    //  Loop and detect objects
     setInterval(() => {
       detect(net);
     }, 10);
