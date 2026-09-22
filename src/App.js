@@ -15,7 +15,7 @@ function App() {
 
   // Main function
   const runCoco = async () => {
-    // 3. TODO - Load network 
+    // 3. TODO - Load network
     // e.g. const net = await cocossd.load();
     const net = await cocossd.load();
 
@@ -58,14 +58,17 @@ function App() {
     }
   };
 
-  useEffect(()=>{runCoco()},[]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    runCoco();
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
         <Webcam
           ref={webcamRef}
-          muted={true} 
+          muted={true}
           style={{
             position: "absolute",
             marginLeft: "auto",
